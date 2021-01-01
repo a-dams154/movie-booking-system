@@ -1,0 +1,26 @@
+<section>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="text-center">Edit Owner</h2>
+                <form action="/admin/edit-owner/{{owner._id}}" method="POST" enctype="multipart/form-data">
+                    <label for="">Owner Name</label>
+                    <input type="text" name='Name' class="form-control" value="{{owner.Name}}">
+                    <label for="">Theater Name</label>
+                    <input type="text" name='Theater_name' class="form-control" value="{{owner.Theater_name}}">
+                    <label for="">Phone Number</label>
+                    <input type="number" name='Phone' class="form-control" value="{{owner.Phone}}">
+                    <E-mail>E-mail</E-mail>
+                    <input type="email" name='email' class="form-control" value="{{owner.email}}">
+                    <label for="">Image</label>
+                    <img src="/owner-images/{{owner._id}}.jpg" alt="" style="width: 100px; height:auto">
+                    <input type="file" name="image" class="form-control">
+
+                    <button type="submit" class="btn btn-success mt-4">update</button>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

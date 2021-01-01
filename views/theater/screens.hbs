@@ -1,0 +1,33 @@
+<section>
+    <dv class="container">
+        <div class="row">
+            <a href="/theater/add-screen" class="btn btn-success ml-auto" style="margin-right: 50px;"> Add Screen</a>
+        </div>
+        <h1 class="text-center">Screens</h1>
+        <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Sr No</th>
+      <th scope="col">Screen Name</th>
+      <th scope="col">Total Seat</th>
+      <th scope="col">Schedule</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each screen}}
+    <tr>
+      <td></td>
+      <td>{{screen.ScreenName}}</td>
+      <td>{{screen.Seats}}</td>
+      <td><a href="/theater/view-shedule/{{this._id}}" class="btn btn-danger">View Schedule</td>
+      <td>
+        <a href="/theater/delete-screen/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure want to delete {{this.Name}} ?')">Delete</a>
+        <a href="/theater/edit-screen/{{this._id}}" class="btn btn-primary">Edit</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+    </dv>
+</section>

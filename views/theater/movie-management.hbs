@@ -1,0 +1,35 @@
+<section>
+    <dv class="container">
+        <div class="row">
+            <a 
+            href="/theater/add-movie" class="btn btn-success ml-auto" style="margin-right: 50px;"> Add Movie
+            </a>
+        </div>
+        <h1 class="text-center">Now Showing Movies</h1>
+        <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Sr No</th>
+      <th scope="col">Movie Name</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Run Time</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each movie}}
+    <tr>
+      <td></td>
+      <td>{{this.MovieTitle}}</td>
+      <td>{{this.ReleaseDate}}</td>
+      <td>{{this.RunTime}}</td>
+      <td>
+        <a href="/theater/delete-movie/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure want to delete {{this.Name}} ?')">Delete</a>
+        <a href="/theater/edit-movie/{{this._id}}" class="btn btn-primary">Edit</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+    </dv>
+</section>

@@ -1,0 +1,36 @@
+<section>
+    <dv class="container">
+        <div class="row">
+            <a 
+            href="/theater/add-show/{{screenid}}" class="btn btn-success ml-auto" style="margin-right: 50px;"> Add Show
+            </a>
+        </div>
+        <h1 class="text-center">{{screenname}}</h1>
+        <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Sr No</th>
+      <th scope="col">Movie Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each showlist}}
+    <tr>
+      <td></td>
+      <td>{{this.MovieName}}</td>
+      <td>{{this.Date}}</td>
+      <td>{{this.ShowTime}}</td>
+      
+      <td>
+        <a href="/theater/delete-show/{{this.showid}}/{{...screenid}}" class="btn btn-danger" onclick="return confirm('Are you sure want to delete ?')">Delete</a>
+        <a href="/theater/edit-show/{{this.showid}}" class="btn btn-primary">Edit</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+    </dv>
+</section>

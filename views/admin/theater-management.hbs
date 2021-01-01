@@ -1,0 +1,32 @@
+<section>
+    <dv class="container">
+        <div class="row">
+            <a href="/admin/add_owner" class="btn btn-success ml-auto" style="margin-right: 50px;"> Add Owner</a>
+        </div>
+        <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Sr No</th>
+      <th scope="col">Theater Owner Names</th>
+      <th scope="col">Theater Names</th>
+      <th scope="col">Theaters</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each owner}}
+    <tr>
+      <td></td>
+      <td><img style="width: 30px;height:30px" src="/owner-images/{{this._id}}.jpg"> {{this.Name}}</td>
+      <td>{{this.Theater_name}}</td>
+      <td><a href="/admin/view-owner/{{this._id}}" class="btn btn-danger">View</td>
+      <td>
+        <a href="/admin/delete-owner/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure want to delete {{this.Name}} ?')">Delete</a>
+        <a href="/admin/edit-owner/{{this._id}}" class="btn btn-primary">Edit</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+    </dv>
+</section>

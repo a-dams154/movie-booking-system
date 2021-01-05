@@ -20,9 +20,9 @@
       {{#each movie}}
     <tr>
       <td></td>
-      <td>{{this.MovieTitle}}</td>
-      <td>{{this.ReleaseDate}}</td>
-      <td>{{this.RunTime}}</td>
+      <td>{{movie.MovieTitle}}</td>
+      <td>{{movie.ReleaseDate}}</td>
+      <td>{{movie.RunTime}}</td>
       <td>
         <a href="/theater/delete-movie/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure want to delete {{this.Name}} ?')">Delete</a>
         <a href="/theater/edit-movie/{{this._id}}" class="btn btn-primary">Edit</a>

@@ -88,33 +88,40 @@ router.get('/',verifyLogin,(req,res)=>{
 
     router.get('/movie-management',verifyLogin,(req,res)=>{
       let user=req.session.owner
-      theaterHelpers.getAllMovie().then((movie)=>{
+      theaterHelpers.getAllMovie(req.session.owner._id).then((movie)=>{
+        res.render('theater/movie-management',{user,movie,theater:true})
         console.log(movie)
-        res.render('theater/movie-management',{movie,user,theater:true})
+        console.log(req.session.owner._id)
       })
     })
 
     router.get('/add-movie',(req,res)=>{
-      res.render('theater/add-movie',{theater:true})
+      let user = req.session.owner
+      res.render('theater/add-movie',{user,theater:true})
     });
 
     router.post('/add-movie',(req,res)=>{
 
       console.log(req.body);
       console.log(req.files.MoviePoster);
-      theaterHelpers.addMovie(req.body,(id)=>{
-        let image=req.files.MoviePoster
-    console.log(id)
-    image.mv('./public/movie-poster/'+id+'.jpg',(err,done)=>{
+      theaterHelpers.addMovie(req.session.owner._id,req.body,(id)=>{
+      let image=req.files.MoviePoster
+      let Poster=req.files.Poster
+      console.log(id)
+      image.mv(('./public/movie-poster/'+id+'.jpg'),Poster.mv('./public/movie-poster/'+id+id+'.jpg',),(err,done)=>{
       if(!err){
-        res.render('theater/add-movie')
+        res.render('/theater/movie-management')
       }else{
         console.log(err)
       }
+
+     
+    
     })
-    res.render('theater/add-movie')
+    res.render('theater/movie-management')
       })
-      res.redirect('/theater/add-movie')
+      res.redirect('/theater/movie-management')
+
       });
 
       router.get('/delete-movie/:id',(req,res)=>{
@@ -135,9 +142,11 @@ router.get('/',verifyLogin,(req,res)=>{
         let id=req.params.id
         theaterHelpers.updateMovie(req.params.id,req.body).then(()=>{
           res.redirect('/theater/movie-management')
-          if(req.files.MoviePoster){
+          if(req.files.MoviePoster,req.files.Poster){
             let image=req.files.MoviePoster
+            let Poster=req.files.Poster
             image.mv('./public/movie-poster/'+id+'.jpg')
+            Poster.mv('./public/movie-poster/'+id+id+'.jpg')
           }
         })
       })
@@ -183,6 +192,11 @@ router.get('/',verifyLogin,(req,res)=>{
             theaterHelpers.deleteShow(req.params.id,req.params.screenid).then((response)=>{
               res.redirect('/theater/view-shedule/'+req.params.screenid)
             })
+          })
+
+          router.get('/users-activity',(req,res)=>{
+            let user=req.session.owner
+            res.render('theater/users-activity',{user,theater:true})
           })
         
   router.get('/logout',(req,res)=>{

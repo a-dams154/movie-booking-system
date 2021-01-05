@@ -5,24 +5,27 @@
                 <h2 class="text-center">Edit Movie</h2>
                 <form action="/theater/edit-movie/{{movie._id}}" method="POST" enctype="multipart/form-data">
                     <label for="">Movie Title</label>
-                    <input type="text" name='MovieTitle' class="form-control" value="{{movie.MovieTitle}}">
+                    <input type="text" name='MovieTitle' class="form-control" value="{{movie.movie.MovieTitle}}">
                     <label for="">Cast</label>
-                    <input type="text" name='Cast' class="form-control" value="{{movie.Cast}}">
+                    <input type="text" name='Cast' class="form-control" value="{{movie.movie.Cast}}">
                     <label for="">Director</label>
-                    <input type="text" name='Director' class="form-control" value="{{movie.Director}}">
+                    <input type="text" name='Director' class="form-control" value="{{movie.movie.Director}}">
                     <label for="">Release Date</label>
-                    <input type="text" name='ReleaseDate' class="form-control" value="{{movie.ReleaseDate}}">
+                    <input type="text" name='ReleaseDate' class="form-control" value="{{movie.movie.ReleaseDate}}">
                     <label for="">Run Time</label>
-                    <input type="text" name='RunTime' class="form-control" value="{{movie.RunTime}}">
+                    <input type="text" name='RunTime' class="form-control" value="{{movie.movie.RunTime}}">
                     <label for="">Language</label>
-                    <input type="text" name='Language' class="form-control" value="{{movie.Language}}">
+                    <input type="text" name='Language' class="form-control" value="{{movie.movie.Language}}">
                     <label for="">Type</label>
-                    <input type="text" name='Type' class="form-control" value="{{movie.Type}}">
+                    <input type="text" name='Type' class="form-control" value="{{movie.movie.Type}}">
                     <label for="">Trailer Link</label>
-                    <input type="text" name='TrailerLink' class="form-control" value="{{movie.TrailerLink}}">
+                    <input type="text" name='TrailerLink' class="form-control" value="{{movie.movie.TrailerLink}}">
                     <label for="">Image</label>
                     <img src="/movie-poster/{{movie._id}}.jpg" alt="" style="width: 100px; height:auto">
                     <input type="file" name="MoviePoster" class="form-control">
+                    <label for="">Image</label>
+                     <img src="/movie-poster/{{movie._id}}{{movie._id}}.jpg" alt="" style="width: 100px; height:auto">
+                    <input type="file" name="Poster" class="form-control">
 
                     <button type="submit" class="btn btn-success mt-4">update</button>
 

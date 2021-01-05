@@ -17,17 +17,31 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="/css/sb-admin-2.css" rel="stylesheet">
+        <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
+    <!-- Custom styles for this template-->
+    <link href="/css/sb-admin-2.min.css" type="text/css" rel="stylesheet">
+    <link href="/css/sb-admin-2.css" type="text/css" rel="stylesheet">
+
+    <link href="/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="/css/elegant-icons.css" type="text/css" rel="stylesheet">
+    <link href="/css/plyr.css" type="text/css" rel="stylesheet">
+    <link href="/css/nice-select.css" type="text/css" rel="stylesheet">
+    <link href="/css/owl.carousel.min.css" type="text/css" rel="stylesheet">
+    <link href="/css/slicknav.min.css" type="text/css" rel="stylesheet">
+    <link href="/css/style.css" type="text/css" rel="stylesheet">
 </head>
 
-<body id="page-top">
+<body>
   {{#if adminlogin}}
   {{{body}}}
   {{else if theaterlogin}}
   {{{body}}}
+ 
+
   {{else if theater}}
   <div id="wrapper">
     {{>theater-sidebar}}
@@ -41,7 +55,7 @@
           </div>
         </div>
   </div>
-  {{else}}
+  {{else if admin}}
   <div id="wrapper">
     {{>admin-sidebar}}
     <!-- Content Wrapper -->
@@ -54,6 +68,10 @@
           </div>
         </div>
   </div>
+  {{else}}
+  {{>user-header}}
+  {{{body}}}
+  {{>user-footer}}
   {{/if}}
 
     <!-- Bootstrap core JavaScript-->
@@ -69,9 +87,14 @@
     <!-- Page level plugins -->
     <script src="/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="/js/demo/chart-area-demo.js"></script>
-    <script src="/js/demo/chart-pie-demo.js"></script>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/player.js"></script>
+<script src="/js/jquery.nice-select.min.js"></script>
+<script src="/js/mixitup.min.js"></script>
+<script src="/js/jquery.slicknav.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 

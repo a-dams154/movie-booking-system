@@ -6,7 +6,7 @@ var logger = require('morgan');
 var nodemailer = require('nodemailer');
 var mongoose = require('mongoose');
 
-var indexRouter = require('./routes/index');
+var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
 var theaterRouter = require('./routes/theater');
 var hbs=require('express-handlebars')
@@ -33,7 +33,7 @@ db.connect((err)=>{
 })
 
 
-app.use('/', indexRouter);
+app.use('/', userRouter);
 app.use('/admin', adminRouter);
 app.use('/theater',theaterRouter);
 

@@ -4,7 +4,7 @@ var router = express.Router();
 var adminHelpers=require('../helpers/admin-helpers.js');
 
 
-const { route } = require('./index.js');
+const { route } = require('./user.js');
 
 const verifyLogin=(req,res,next)=>{
   if(req.session.loggedIn){
@@ -19,10 +19,11 @@ router.get('/',verifyLogin,(req, res)=>{
   
   let user=req.session.admin
   console.log(user)
-  res.render('admin/dashboard',{user})
+  res.render('admin/dashboard',{user,admin:true})
 });
 router.get('/add_owner',function(req,res){
-  res.render('admin/add_owner')
+  let user=req.session.admin
+  res.render('admin/add_owner',{user,admin:true})
 
 })
 router.post('/add_owner',(req,res)=>{
@@ -45,21 +46,22 @@ router.post('/add_owner',(req,res)=>{
 })
 router.get('/dashboard',verifyLogin,(req,res)=>{
   let user=req.session.admin
-  res.render('admin/dashboard',{user})
+  res.render('admin/dashboard',{user,admin:true})
 })
 router.get('/theater-management',verifyLogin,(req,res)=>{
   let user=req.session.admin
   adminHelpers.getAllOwner().then((owner)=>{
     console.log(owner)
-    res.render('admin/theater-management',{owner,user})
+    res.render('admin/theater-management',{owner,user,admin:true})
   })
 })
 router.get('/users-management',(req,res)=>{
   let user=req.session.admin
-  res.render('admin/users-management',{user})
+  res.render('admin/users-management',{user,admin:true})
 })
 router.get('/users-activity',(req,res)=>{
-  res.render('admin/users-activity')
+  let user=req.session.admin
+  res.render('admin/users-activity',{user,admin:true})
 })
 router.get('/delete-owner/:id',(req,res)=>{
   let proId=req.params.id
@@ -69,9 +71,10 @@ router.get('/delete-owner/:id',(req,res)=>{
   })
 })
 router.get('/edit-owner/:id',async(req,res)=>{
+  let user=req.session.admin
   let owner=await adminHelpers.getOwnerDetails(req.params.id)
   console.log(owner)
-  res.render('admin/edit-owner',{owner})
+  res.render('admin/edit-owner',{owner,user,admin:true})
 })
 router.post('/edit-owner/:id',(req,res)=>{
   let id=req.params.id
@@ -84,9 +87,10 @@ router.post('/edit-owner/:id',(req,res)=>{
   })
 })
 router.get('/view-owner/:id',async(req,res)=>{
+  let user=req.session.admin
   let owner=await adminHelpers.getOwnerDetails(req.params.id)
   console.log(owner)
-  res.render('admin/view-owner',{owner})
+  res.render('admin/view-owner',{owner,user,admin:true})
 })
 router.get('/adminlogin',(req,res)=>{
   if(req.session.loggedIn){

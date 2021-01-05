@@ -54,7 +54,7 @@ module.exports={
     },
     updateScreen:(screenId,screenDetails)=>{
         return new Promise((resolve,reject)=>{
-            db.get().collection(collection.SCREEN_COLLECTION).update({_id:objectId(screenId)},{
+            db.get().collection(collection.SCREEN_COLLECTION).update({_id:ObjectId(screenId)},{
                 $set:{
                     screen:
                     {
@@ -78,15 +78,16 @@ module.exports={
     },
     getScreenDetails:(screenId)=>{
         return new Promise((resolve,reject)=>{
-           db.get().collection(collection.SCREEN_COLLECTION).findOne({_id:objectId(screenId)}).then((screen)=>{
+           db.get().collection(collection.SCREEN_COLLECTION).findOne({_id:ObjectId(screenId)}).then((screen)=>{
             resolve(screen)
            })
                
         })
     },
-    addMovie:(movie,callback)=>{
+    addMovie:(ownerId,movie,callback)=>{
         console.log(movie)
-        db.get().collection('movie').insertOne(movie).then((data)=>{
+        movie.ownerid=ownerId
+        db.get().collection('movie').insertOne({movie,ownerid:ObjectId(ownerId)}).then((data)=>{
             callback(data.ops[0]._id)
         })
         
@@ -100,10 +101,11 @@ module.exports={
             })
         })
     },
-    getAllMovie:()=>{
+    getAllMovie:(ownerId)=>{
         return new Promise(async(resolve,reject)=>{
-            let movie=await db.get().collection(collection.MOVIE_COLLECTION).find().toArray()
-            resolve(movie)
+            let movi=await db.get().collection(collection.MOVIE_COLLECTION).find({ownerid:objectId(ownerId)}).toArray()
+            
+            resolve(movi)
         })
     },
     getMovieDetails:(movieId)=>{

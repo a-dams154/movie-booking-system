@@ -1,0 +1,29 @@
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+              
+              <h1 class="card-title text-center"></h1>
+              
+            <h1 class="card-title text-center">We Send Your Code</h1>
+            <h3 class="card-title text-center">Enter the confirmation code below</h3>
+           
+              <form method="POST" class="form-signin" action="/signup-otp-response">
+               <div class="form-label-group">
+                   <input type="hidden" name="number" value="{{number}}">
+                   <input type="hidden" name="name" value="{{name}}">
+                   <input type="hidden" name="email" value="{{email}}">
+                   <input type="hidden" name="otp" value="{{otp}}">
+                <input type="text" name="token" class="form-control">
+                
+                <br>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Check Code</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

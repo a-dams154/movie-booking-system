@@ -31,6 +31,8 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+
+
 html,
 body {
 	height: 100%;
@@ -46,7 +48,7 @@ h4,
 h5,
 h6 {
 	margin: 0;
-	color: #ffffff;
+	color: #3b3939;
 	font-weight: 400;
 	font-family: "Mulish", sans-serif;
 }
@@ -1951,7 +1953,7 @@ ol {
 	color: #ffffff;
 	height: 50px;
 	width: 50px;
-	background: #e53637;
+	background: center;
 	line-height: 50px;
 	text-align: center;
 	border-radius: 50%;

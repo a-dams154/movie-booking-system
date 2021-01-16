@@ -22,7 +22,7 @@ module.exports={
             let response={}
             let admin=await db.get().collection(collection.ADMIN_COLLECTION).findOne({email:userdata.email})
             if(admin){
-                bcrypt.compare(userdata.Password,admin.Password).then((status)=>{
+                bcrypt.compare(userdata.Password,admin.Password).then((status)=>{       
                     if(status){
                         console.log('login success')
                         response.admin=admin

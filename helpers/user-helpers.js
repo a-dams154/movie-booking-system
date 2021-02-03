@@ -27,6 +27,56 @@ module.exports={
             ]).toArray()
             resolve(english)
         })
+    },
+    getTamilMovie:()=>{
+        return new Promise(async(resolve,reject)=>{
+            let tamil=await db.get().collection(collection.MOVIE_COLLECTION).aggregate([
+                {$unwind:"$movie"},
+                {$match:{"movie.Language":'Tamil'}}
+            ]).toArray()
+            resolve(tamil)
+        })
+    },
+    getMovieDetails:(id)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.MOVIE_COLLECTION).findOne({_id:objectId(id)}).then((movie)=>{
+                resolve(movie)
+            })
+        })
+    },
+    getFormat:(movietype)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.SCREEN_COLLECTION).findOne({_id:objectId(id)}).then((movie)=>{
+                resolve(movie)
+            })
+        })
+    },
+    getRelatedMovie:(movietype)=>{
+        return new Promise(async(resolve,reject)=>{
+            let relatedmovie = await db.get().collection(collection.MOVIE_COLLECTION).aggregate([
+                {$unwind:"$movie"},
+                {$match:{"movie.Type":movietype}}
+            ]).toArray()
+            resolve(relatedmovie)
+        })
+
+    },
+    getMovieType:(MovieTitle)=>{
+        return new Promise(async(resolve,reject)=>{
+            let movietype = await db.get().collection(collection.SCREEN_COLLECTION).aggregate([
+                {$unwind:'$shows'},
+                {$match:{"shows.MovieName":MovieTitle}}
+            ]).toArray()
+            resolve(movietype)
+        })
+
+    },
+    getTrailer:(id)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.MOVIE_COLLECTION).findOne({_id:objectId(id)}).then((trailer)=>{
+                resolve(trailer)
+            })
+        })
     }
    
 }

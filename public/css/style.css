@@ -38,8 +38,30 @@ body {
 	height: 100%;
 	font-family: "Mulish", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	background: #0b0c2a;
+	background: lightgrey;
 }
+.trailerlink .trailer-btn span {
+	font-size: 13px;
+	color: #ffffff;
+	background: #e53637;
+	display: inline-block;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	padding: 14px 20px;
+	border-radius: 4px 0 0 4px;
+	margin-right: 1px;
+}
+
+.trailerlink .trailer-btn i {
+	font-size: 20px;
+	display: inline-block;
+	background: #e53637;
+	padding: 11px 5px 16px 8px;
+	color: #ffffff;
+	border-radius: 0 4px 4px 0;
+}
+
 
 h1,
 h2,
@@ -101,7 +123,7 @@ a:hover,
 a:focus {
 	text-decoration: none;
 	outline: none;
-	color: #ffffff;
+	color: #0c0b0b;
 }
 
 ul,
@@ -120,7 +142,7 @@ ol {
 
 .section-title h4,
 .section-title h5 {
-	color: #ffffff;
+	color: rgb(10, 10, 10);
 	font-weight: 600;
 	line-height: 21px;
 	text-transform: uppercase;
@@ -142,9 +164,17 @@ ol {
 
 .set-bg {
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
 	background-position: top center;
 }
+
+.image{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+	background-image: linear-gradient(to right,red,yellow);
+}
+
 
 .spad {
 	padding-top: 100px;
@@ -171,7 +201,7 @@ ol {
 	font-size: 13px;
 	font-weight: 700;
 	text-transform: uppercase;
-	color: #ffffff;
+	color:  rgb(60, 108, 243);
 	letter-spacing: 2px;
 }
 
@@ -445,10 +475,11 @@ ol {
 
 .hero {
 	padding-top: 50px;
+	padding-bottom: 11px;
 }
 
 .hero__items {
-	padding: 250px 0 42px 50px;
+	padding: 154px 0 42px 50px;
 	border-radius: 5px;
 }
 
@@ -578,10 +609,10 @@ ol {
 	font-size: 36px;
 	height: 66px;
 	width: 66px;
-	background: #0b0c2a;
+	background: none;
 	line-height: 66px;
 	text-align: center;
-	color: #ffffff;
+	color: #0f0f0f;
 	-webkit-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
@@ -625,7 +656,7 @@ ol {
 
 .product {
 	padding-bottom: 60px;
-	padding-top: 80px;
+	padding-top: 25px;
 }
 
 .product-page {
@@ -654,7 +685,7 @@ ol {
 }
 
 .product__item__pic {
-	height: 325px;
+	height: 132px;
 	position: relative;
 	border-radius: 5px;
 }
@@ -705,8 +736,8 @@ ol {
 
 .product__item__text ul li {
 	list-style: none;
-	font-size: 10px;
-	color: #ffffff;
+	font-size: 13px;
+	color: #0f0e0e;
 	font-weight: 700;
 	padding: 1px 10px;
 	background: rgba(255, 255, 255, 0.2);
@@ -715,13 +746,13 @@ ol {
 }
 
 .product__item__text h5 a {
-	color: #ffffff;
-	font-weight: 700;
+	color: rgb(10, 10, 10);
+	font-weight: 1000;
 	line-height: 26px;
 }
 
 .product__sidebar .section-title h5 {
-	color: #ffffff;
+	color: #0c0a0a;
 	font-weight: 600;
 	font-family: "Oswald", sans-serif;
 	line-height: 21px;
@@ -747,21 +778,21 @@ ol {
 
 .product__sidebar__view .filter__controls {
 	position: absolute;
-	right: 0;
+	right: -63px;
 	top: -5px;
 }
 
 .product__sidebar__view .filter__controls li {
 	list-style: none;
 	font-size: 13px;
-	color: #b7b7b7;
+	color: rgb(102, 76, 81);
 	display: inline-block;
 	margin-right: 7px;
 	cursor: pointer;
 }
 
 .product__sidebar__view .filter__controls li.active {
-	color: #ffffff;
+	color:rgb(102, 76, 81);
 }
 
 .product__sidebar__view .filter__controls li:last-child {
@@ -808,9 +839,11 @@ ol {
 }
 
 .product__sidebar__view__item h5 a {
-	color: #ffffff;
+	color: white;
 	font-weight: 700;
 	line-height: 26px;
+	background-color: black;
+	border-radius: 5px;
 }
 
 .product__sidebar__comment {
@@ -952,7 +985,13 @@ ol {
 }
 
 .anime__details__content {
-	margin-bottom: 65px;
+	margin-bottom: 45px;
+	padding-left: 36px;
+	padding-top: 29px;
+	margin-left: -70px;
+	margin-right: -71px;
+	margin-top: -32px;
+	padding-bottom: 28px;
 }
 
 .anime__details__text {
@@ -960,13 +999,13 @@ ol {
 }
 
 .anime__details__text p {
-	color: #b7b7b7;
+	color: #201e1e;
 	font-size: 18px;
 	line-height: 30px;
 }
 
 .anime__details__pic {
-	height: 440px;
+	height: 242px;
 	border-radius: 5px;
 	position: relative;
 }
@@ -1000,14 +1039,14 @@ ol {
 }
 
 .anime__details__title h3 {
-	color: #ffffff;
+	color:#201e1e;
 	font-weight: 700;
 	margin-bottom: 13px;
 }
 
 .anime__details__title span {
 	font-size: 15px;
-	color: #b7b7b7;
+	color:  #201e1e;
 	display: block;
 }
 
@@ -1027,7 +1066,7 @@ ol {
 .anime__details__rating span {
 	display: block;
 	font-size: 18px;
-	color: #b7b7b7;
+	color: #201e1e;
 }
 
 .anime__details__widget {
@@ -1041,7 +1080,7 @@ ol {
 .anime__details__widget ul li {
 	list-style: none;
 	font-size: 15px;
-	color: #ffffff;
+	color:#201e1e;
 	line-height: 30px;
 	position: relative;
 	padding-left: 18px;
@@ -1053,12 +1092,12 @@ ol {
 	top: 12px;
 	height: 6px;
 	width: 6px;
-	background: #b7b7b7;
+	background: dimgrey;
 	content: "";
 }
 
 .anime__details__widget ul li span {
-	color: #b7b7b7;
+	color:#201e1e;
 	width: 115px;
 	display: inline-block;
 }
@@ -1300,7 +1339,7 @@ ol {
 
 .breadcrumb__links a {
 	font-size: 15px;
-	color: #ffffff;
+	color: #070707;
 	margin-right: 18px;
 	display: inline-block;
 	position: relative;
@@ -1321,7 +1360,7 @@ ol {
 
 .breadcrumb__links span {
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #070707;
 	display: inline-block;
 }
 
@@ -2002,6 +2041,7 @@ ol {
 @media only screen and (min-width: 1200px) and (max-width: 1300px) {
 	.hero {
 		overflow: hidden;
+		background-color: white;
 	}
 }
 
@@ -2016,6 +2056,7 @@ ol {
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 	.hero {
 		overflow: hidden;
+		background-color: lightgrey;
 	}
 	.login__form {
 		position: relative;
@@ -2034,6 +2075,7 @@ ol {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.hero {
 		overflow: hidden;
+		background-color: lightgrey;
 	}
 	.header {
 		position: relative;
@@ -2139,9 +2181,12 @@ ol {
 @media only screen and (max-width: 767px) {
 	.hero {
 		overflow: hidden;
+		background-color: white;
+		margin-right: -40px;
 	}
 	.header {
 		position: relative;
+		margin-right: -40px;
 	}
 	.header .container {
 		position: relative;
@@ -2282,7 +2327,7 @@ ol {
 		display: none;
 	}
 	.hero__items {
-		padding: 250px 0 42px 15px;
+		padding: 55px 0 42px 15px;
 	}
 	.hero__text h2 {
 		font-size: 32px;
@@ -2340,5 +2385,29 @@ ol {
 	}
 	.anime__review__item__text {
 		padding: 18px 20px 20px;
+	}
+
+	.product__item__pic .comment {
+		font-size: 13px;
+		color: #ffffff;
+		background: #3d3d3d;
+		display: inline-block;
+		padding: 2px 10px;
+		border-radius: 4px;
+		position: absolute;
+		left: 55px;
+		bottom: 10px;
+	}
+
+	.product__item__pic .view {
+		font-size: 13px;
+		color: #ffffff;
+		background: #3d3d3d;
+		display: inline-block;
+		padding: 2px 10px;
+		border-radius: 4px;
+		position: absolute;
+		right: 55px;
+		bottom: 10px;
 	}
 }

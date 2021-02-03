@@ -4,17 +4,18 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-              
-              <h1 class="card-title text-center"></h1>
-              
+              {{#if error}}
+              <h1 class="invaliderror text-center">{{error}}</h1>
+              {{/if}}
             <h1 class="card-title text-center">We Send Your Code</h1>
             <h3 class="card-title text-center">Enter the confirmation code below</h3>
            
               <form method="POST" class="form-signin" action="/otp-response">
                <div class="form-label-group">
+                   <input type="hidden" name="errortoken" value="{{token}}">
                    <input type="hidden" name="otp" value="{{otp}}">
                    <input type="hidden" name="name" value="{{name}}">
-                <input type="text" name="token" class="form-control">
+                <input type="text" required name="token" class="form-control">
                 
                 <br>
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Check Code</button>

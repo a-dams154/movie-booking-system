@@ -4,9 +4,9 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-              
-              <h1 class="card-title text-center"></h1>
-              
+              {{#if error}}
+              <h1 class="invaliderror text-center">{{error}}</h1>
+              {{/if}}
             <h1 class="card-title text-center">We Send Your Code</h1>
             <h3 class="card-title text-center">Enter the confirmation code below</h3>
            

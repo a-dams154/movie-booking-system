@@ -10,7 +10,7 @@ const verifyLogin=(req,res,next)=>{
   }else{
     res.redirect('/admin/adminlogin')
   }
-}
+} 
 /* GET home page. */
 
 router.get('/',verifyLogin,(req, res)=>{
@@ -93,7 +93,7 @@ router.get('/view-owner/:id',async(req,res)=>{
 router.get('/adminlogin',(req,res)=>{
   if(req.session.loggedIn){
     res.redirect('/admin')
-  }else{
+  }else{        
   res.render('admin/admin-login',{adminlogin:true,'loginErr':req.session.loginErr})
   req.session.loginErr=false
   }

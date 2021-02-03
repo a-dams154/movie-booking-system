@@ -86,7 +86,6 @@ module.exports={
     },
     addMovie:(ownerId,movie,callback)=>{
         console.log(movie)
-        movie.ownerid=ownerId
         db.get().collection('movie').insertOne({movie,ownerid:ObjectId(ownerId)}).then((data)=>{
             callback(data.ops[0]._id)
         })
@@ -117,8 +116,10 @@ module.exports={
     },
     updateMovie:(movieId,movieDetails)=>{
         return new Promise((resolve,reject)=>{
-            db.get().collection(collection.MOVIE_COLLECTION).updateOne({_id:objectId(movieId)},{
+            db.get().collection(collection.MOVIE_COLLECTION).update({_id:objectId(movieId)},{
                 $set:{
+                    movie:
+                    {
                     MovieTitle:movieDetails.MovieTitle,
                     Cast:movieDetails.Cast,
                     Director:movieDetails.Director,
@@ -126,7 +127,9 @@ module.exports={
                     RunTime:movieDetails.RunTime,
                     Language:movieDetails.Language,
                     Type:movieDetails.Type,
+                    Format:movieDetails.Format,
                     TrailerLink:movieDetails.TrailerLink
+                    }
 
                 }
             }).then((response)=>{
@@ -140,6 +143,8 @@ module.exports={
             $push:{
                shows: {showid:new objectId(),
                 MovieName:showDetails.MovieName,
+                Format:showDetails.Format,
+                Language:showDetails.Language,
                 Date:showDetails.Date,
                 ShowTime:showDetails.ShowTime,
                 Vip:showDetails.Vip,
@@ -185,6 +190,8 @@ module.exports={
                    
                         
                     'shows.$.MovieName':showDetails.MovieName,
+                    'shows.$.Format':showDetails.Format,
+                    'shows.$.Language':showDetails.Language,
                     'shows.$.Date':showDetails.Date,
                     'shows.$.ShowTime':showDetails.ShowTime,
                     'shows.$.Vip':showDetails.Vip,

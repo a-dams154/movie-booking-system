@@ -110,13 +110,10 @@ router.get('/',verifyLogin,(req,res)=>{
       console.log(id)
       image.mv(('./public/movie-poster/'+id+'.jpg'),Poster.mv('./public/movie-poster/'+id+id+'.jpg',),(err,done)=>{
       if(!err){
-        res.render('/theater/movie-management')
+        res.render('theater/movie-management')
       }else{
         console.log(err)
       }
-
-     
-    
     })
     res.render('theater/movie-management')
       })
